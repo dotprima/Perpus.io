@@ -40,8 +40,12 @@ class Validation
 	public $users = [
 		'name'         => 'required',
 		'email'       => 'required',
+		'address'       => 'required',
+		'phone'       => 'required',
+		'nik'       => 'required',
 		'password'       => 'required'
 	];
+
 	 
 	
 

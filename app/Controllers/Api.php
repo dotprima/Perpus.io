@@ -29,22 +29,43 @@ class Api extends BaseController
     // create a product
     public function create()
     {
-        $model = new Users();
+        $users = new Users();
+        $validation =  \Config\Services::validation();
         $data = [
             'name' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT)
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT),
+            'address' => $this->request->getPost('name'),
+            'phone' => $this->request->getPost('phone'),
+            'nik' => $this->request->getPost('nik'),
         ]; 
-        $model->insert($data);
-        $response = [
-            'status'   => 201,
-            'error'    => null,
-            'messages' => [
-                'success' => 'Data Saved'
-            ]
-        ];
-         
-        return $this->respondCreated($response, 201);
+        if($validation->run($data, 'users') == TRUE){
+           if($users->insert($data)){
+            $response = [
+                'status'   => 201,
+                'error'    => null,
+                'messages' => [
+                    'success' => 'Data Saved'
+                ]
+            ]; 
+            return $this->respondCreated($response, 201);
+           }else{
+            $response = [
+                'status' => 500,
+                'error' => true,
+                'data' => $validation->getErrors(),
+            ];
+            return $this->respond($response, 500);
+           }
+            
+        }else{
+            $response = [
+                'status' => 500,
+                'error' => true,
+                'data' => $validation->getErrors(),
+            ];
+            return $this->respond($response, 500);
+        }
     }
  
     // update product
@@ -57,7 +78,10 @@ class Api extends BaseController
             $input  = $this->request->getRawInput();
             $data = [
                 'name' => $input['name'],
-                'email' => $input['password'],
+                'email' => $input['email'],
+                'address' => $input['address'],
+                'phone' => $input['phone'],
+                'nik' => $input['nik'],   
                 'password' => password_hash($input['password'], PASSWORD_BCRYPT)
                
             ];   
@@ -65,7 +89,10 @@ class Api extends BaseController
                 $input  = $this->request->getRawInput();
                 $data = [
                     'name' => $input['name'],
-                    'email' => $input['password'],
+                    'email' => $input['email'],
+                    'address' => $input['address'],
+                    'phone' => $input['phone'],
+                    'nik' => $input['nik'],
                     'password' => password_hash($input['password'], PASSWORD_BCRYPT)
                    
                 ]; 

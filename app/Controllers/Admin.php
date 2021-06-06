@@ -7,10 +7,12 @@ class Admin extends BaseController
 	public function index()
 	{	
 		$model = new Users();
-		$users = $model->select('id, name, email ,address, phone , nik, created_at, updated_at')->findAll();
+		$users = $model->select('id, name, email ,address, phone , nik, created_at, updated_at')->orderBy('id', 'DESC')->findAll();
 		$data = [
 			'users' => $users
 		];
 		return view('v_admin',$data);
+		
+		
 	}
 }

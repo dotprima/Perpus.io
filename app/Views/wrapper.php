@@ -42,16 +42,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </button>
 
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                    <?= session()->get('name')?>
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>" class="nav-link">Home</a>
+                            <a href="<?= base_url() ?>" class="nav-link">Welcome </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>/admin" class="nav-link">Admin</a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>/about" class="nav-link">About US</a>
+                        </li>
+
+                        <li class="nav-item disabled">
+                            <a href="#" class="nav-link"><?=session()->get('name')?></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>/logout" class="nav-link">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?= base_url() ?>">Home</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url()?>/admin">Welcome </a></li>
                                 <li class="breadcrumb-item active">Admin</li>
                             </ol>
                         </div><!-- /.col -->

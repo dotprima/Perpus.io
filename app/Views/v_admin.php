@@ -88,7 +88,7 @@ function edit_user(id) {
     $('#form_update')[0].reset(); // reset form on modals
     <?php header('Content-type: application/json'); ?>
     $.ajax({
-        url: "<?php echo site_url('http://localhost:8080/api')?>/" + id,
+        url: "<?php echo site_url('http://localhost:8080/api/user')?>/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {
@@ -111,7 +111,7 @@ function edit_user(id) {
 }
 
 function save() {
-    var url = "http://localhost:8080/index.php/api"
+    var url = "http://localhost:8080/index.php/user"
 
     // ajax adding data to database
     $.ajax({
@@ -139,7 +139,7 @@ function update(id) {
     }, {});
     $.ajax({
         data: $('#form_update').serialize(),
-        url: "<?php echo site_url('http://localhost:8080/api')?>/" + formData.id,
+        url: "<?php echo site_url('http://localhost:8080/api/user')?>/" + formData.id,
         method: "PUT",
         dataType: "JSON",
         success: function(data) {
@@ -167,7 +167,7 @@ function delete_user(id) {
             if (willDelete) {
                 // ajax delete data from database
                 $.ajax({
-                    url: "<?php echo site_url('http://localhost:8080/api')?>/" + id,
+                    url: "<?php echo site_url('http://localhost:8080/api/user')?>/" + id,
                     type: "DELETE",
                     dataType: "JSON",
                     success: function(data) {

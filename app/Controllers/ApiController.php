@@ -5,7 +5,7 @@ use App\Models\Users;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 
-class Api extends BaseController
+class ApiController extends BaseController
 {
     use ResponseTrait;
     public function index()

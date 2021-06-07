@@ -109,7 +109,7 @@ function edit_user(id) {
     $('#form_update')[0].reset(); // reset form on modals
     <?php header('Content-type: application/json'); ?>
     $.ajax({
-        url: "<?php echo site_url('http://localhost:8080/api/user')?>/" + id,
+        url: "<?=base_url()?>/api/user/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {
@@ -132,7 +132,7 @@ function edit_user(id) {
 }
 
 function save() {
-    var url = "http://localhost:8080/api/user"
+    var url = "<?=base_url()?>/api/user"
 
     // ajax adding data to database
     $.ajax({
@@ -143,8 +143,8 @@ function save() {
         success: function(data) {
             //if success close modal and reload ajax table
             $('#modal_add').modal('hide');
-            $("#table_id").load("http://localhost:8080/admin #table_id");
-            $("#count").load("http://localhost:8080/admin #count");
+            $("#table_id").load("<?=base_url()?>/admin #table_id");
+            $("#count").load("<?=base_url()?>/admin #count");
             swal("Keren", "Data berhasil di masukan", "success");
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -161,14 +161,14 @@ function update(id) {
     }, {});
     $.ajax({
         data: $('#form_update').serialize(),
-        url: "<?php echo site_url('http://localhost:8080/api/user')?>/" + formData.id,
+        url: "<?=base_url()?>/api/user/" + formData.id,
         method: "PUT",
         dataType: "JSON",
         success: function(data) {
             //if success close modal and reload ajax table
             $('#modal_form').modal('hide');
             swal("Keren", "Data berhasil di update", "success");
-            $("#table_id").load("http://localhost:8080/admin #table_id");
+            $("#table_id").load("<?=base_url()?>/admin #table_id");
 
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -190,12 +190,12 @@ function delete_user(id) {
             if (willDelete) {
                 // ajax delete data from database
                 $.ajax({
-                    url: "<?php echo site_url('http://localhost:8080/api/user')?>/" + id,
+                    url: "<?=base_url()?>/api/user/" + id,
                     type: "DELETE",
                     dataType: "JSON",
                     success: function(data) {
-                        $("#table_id").load("http://localhost:8080/admin #table_id");
-                        $("#count").load("http://localhost:8080/admin #count");
+                        $("#table_id").load("<?=base_url()?>/admin #table_id");
+                        $("#count").load("<?=base_url()?>/admin #count");
                         swal("Keren", "Data Gagal di hapus", "success");
                     },
                     error: function(jqXHR, textStatus, errorThrown) {

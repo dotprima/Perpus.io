@@ -26,7 +26,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
             <div class="container">
@@ -42,21 +41,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </button>
 
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-                    <?= session()->get('name')?>
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>" class="nav-link">Welcome </a>
+                            <a href="<?= base_url() ?>/admin"
+                                class="nav-link <?php if($title=='Dashboard')echo 'active'?>">Admin</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/admin" class="nav-link">Admin</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>/about" class="nav-link">About US</a>
+                            <a href="<?= base_url() ?>/admin/about"
+                                class="nav-link <?php if($title=='About')echo 'active'?>">About US</a>
                         </li>
 
                         <li class="nav-item disabled">
-                            <a href="#" class="nav-link"><?=session()->get('name')?></a>
+                            <a class="nav-link disabled" data-toggle="dropdown" href="#">
+                                <i>
+                                    <img style="width:25px;" class="img-circle"
+                                        src="https://ui-avatars.com/api/?name=<?=session()->get('name')?>"
+                                        alt="User Image"></i>
+                                <span><?=session()->get('name')?></span>
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>/logout" class="nav-link">Logout</a>
@@ -75,12 +78,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"> Codeigniter4 <small>Dashboard</small></h1>
+
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="<?= base_url()?>/admin">Welcome </a></li>
-                                <li class="breadcrumb-item active">Admin</li>
+                                <li class="breadcrumb-item active"><?=$title?></li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

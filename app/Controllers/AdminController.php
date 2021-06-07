@@ -13,8 +13,21 @@ class AdminController extends BaseController
 		$model = new Users();
 		$users = $model->select('id, name, email ,address, phone , nik, created_at, updated_at')->orderBy('id', 'DESC')->findAll();
 		$data = [
-			'users' => $users
+			'users' => $users,
+			'title' => 'Dashboard'
 		];
 		return view('v_admin',$data);
+	}
+
+	public function about()
+	{	
+		if(is_null(session()->get('logged_in')))
+        {
+            return redirect()->to(base_url('/'));
+        }
+		$data = [
+			'title' => 'About'
+		];
+		return view('v_about',$data);
 	}
 }

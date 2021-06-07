@@ -1,12 +1,33 @@
 <?= $this->extend('wrapper') ?>
 
 <?= $this->section('content') ?>
-<section>
-    <div class="container" style='padding-top:30px'>
-        <button class="btn btn-success float-right" onclick="add_user()"><i class="glyphicon glyphicon-plus"></i>
-            Tambah Users</button>
-        <br>
-        <br>
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-12">
+                <div id="count" class="info-box">
+                    <span class="info-box-icon bg-danger"><i class="far fa-star"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Users Count</span>
+                        <span class="info-box-number"><?=count($users)?></span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-md-3 col-sm-6 col-12">
+
+            </div>
+            <div class="col-md-6 col-sm-6 col-12" style="margin-top:20px;">
+
+                <button class="btn btn-success float-right" onclick="add_user()"><i
+                        class="glyphicon glyphicon-plus"></i>
+                    Tambah Users</button>
+            </div>
+
+
+        </div>
+
         <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
@@ -111,7 +132,7 @@ function edit_user(id) {
 }
 
 function save() {
-    var url = "http://localhost:8080/index.php/user"
+    var url = "http://localhost:8080/api/user"
 
     // ajax adding data to database
     $.ajax({
@@ -123,6 +144,7 @@ function save() {
             //if success close modal and reload ajax table
             $('#modal_add').modal('hide');
             $("#table_id").load("http://localhost:8080/admin #table_id");
+            $("#count").load("http://localhost:8080/admin #count");
             swal("Keren", "Data berhasil di masukan", "success");
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -147,6 +169,7 @@ function update(id) {
             $('#modal_form').modal('hide');
             swal("Keren", "Data berhasil di update", "success");
             $("#table_id").load("http://localhost:8080/admin #table_id");
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             $('#modal_form').modal('hide');
@@ -172,6 +195,7 @@ function delete_user(id) {
                     dataType: "JSON",
                     success: function(data) {
                         $("#table_id").load("http://localhost:8080/admin #table_id");
+                        $("#count").load("http://localhost:8080/admin #count");
                         swal("Keren", "Data Gagal di hapus", "success");
                     },
                     error: function(jqXHR, textStatus, errorThrown) {

@@ -38,12 +38,12 @@ class Validation
 	];
 
 	public $users = [
-		'name'         => 'required',
-		'email'       => 'required',
-		'address'       => 'required',
-		'phone'       => 'required',
-		'nik'       => 'required',
-		'password'       => 'required'
+		'name'         => 'required|min_length[5]',
+		'email'       => 'required|valid_email',
+		'address'       => 'required|min_length[5]',
+		'phone'       => 'required|min_length[5]',
+		'nik'       => 'required|integer|min_length[5]',
+		'password'       => 'required|min_length[6]'
 	];
 
 	 

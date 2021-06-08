@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Models\Users;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
+use App\Models\Notifikasi;
 
 class ApiController extends BaseController
 {
@@ -48,6 +49,12 @@ class ApiController extends BaseController
                     'success' => 'Data Saved'
                 ]
             ]; 
+            $notifiaksi = new Notifikasi();
+            $noti = [
+                'status' => 'create',
+                'email'  => $data['email']
+            ];
+            $notifiaksi->insert($noti);
             return $this->respondCreated($response, 201);
            }else{
             $response = [
@@ -104,6 +111,12 @@ class ApiController extends BaseController
                         'error' => false,
                         'data' => $msg,
                     ];
+                    $notifiaksi = new Notifikasi();
+                    $noti = [
+                        'status' => 'update',
+                        'email'  => $data['email']
+                    ];
+                    $notifiaksi->insert($noti);
                     return $this->respond($response, 200);
                 }else{
                     $response = [
@@ -139,6 +152,12 @@ class ApiController extends BaseController
                     'success' => 'Data Deleted'
                 ]
             ];
+            $notifiaksi = new Notifikasi();
+            $noti = [
+                'status' => 'delete',
+                'email'  => $data['email']
+            ];
+            $notifiaksi->insert($noti);
             return $this->respondDeleted($response);
         }else{
             return $this->failNotFound('No Data Found with id => '.$id);

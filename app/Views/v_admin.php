@@ -24,63 +24,62 @@
                         class="glyphicon glyphicon-plus"></i>
                     Tambah Users</button>
             </div>
-
-
         </div>
+        <div class="table-responsive" width="100%">
+            <table id="table_id" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>NIK</th>
+                        <th>Created_at</th>
+                        <th>Updated_at</th>
+                        <th style="width:125px;">Action
+                            </p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($users as $user):?>
+                    <tr>
+                        <td align="center"><?php echo $user['id']?></td>
+                        <td align="center"><?php echo $user['name']?></td>
+                        <td align="center"><?php echo $user['email']?></td>
+                        <td align="center"><?php echo $user['address']?></td>
+                        <td align="center"><?php echo $user['phone']?></td>
+                        <td align="center"><?php echo $user['nik']?></td>
+                        <td align="center"><?php echo $user['created_at']?></td>
+                        <td align="center"><?php echo $user['updated_at']?></td>
+                        <td>
+                            <button class="btn btn-warning" onclick="edit_user(<?php echo $user['id'];?>)">Edit</button>
+                            <button class="btn btn-danger"
+                                onclick="delete_user(<?php echo $user['id'];?>)">Delete</button>
+                        </td>
+                    </tr>
+                    <?php endforeach?>
 
-        <table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>NIK</th>
-                    <th>Created_at</th>
-                    <th>Updated_at</th>
-                    <th style="width:125px;">Action
-                        </p>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($users as $user):?>
-                <tr>
-                    <td align="center"><?php echo $user['id']?></td>
-                    <td align="center"><?php echo $user['name']?></td>
-                    <td align="center"><?php echo $user['email']?></td>
-                    <td align="center"><?php echo $user['address']?></td>
-                    <td align="center"><?php echo $user['phone']?></td>
-                    <td align="center"><?php echo $user['nik']?></td>
-                    <td align="center"><?php echo $user['created_at']?></td>
-                    <td align="center"><?php echo $user['updated_at']?></td>
-                    <td>
-                        <button class="btn btn-warning" onclick="edit_user(<?php echo $user['id'];?>)">Edit</button>
-                        <button class="btn btn-danger" onclick="delete_user(<?php echo $user['id'];?>)">Delete</button>
-                    </td>
-                </tr>
-                <?php endforeach?>
+                </tbody>
 
-            </tbody>
-
-            <tfoot>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>NIK</th>
-                    <th>Created_at</th>
-                    <th>Updated_at</th>
-                    <th style="width:125px;">Action
-                        </p>
-                    </th>
-                </tr>
-            </tfoot>
-        </table>
-
+                <tfoot>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>NIK</th>
+                        <th>Created_at</th>
+                        <th>Updated_at</th>
+                        <th style="width:125px;">Action
+                            </p>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     </div>
 </section>
 <?= $this->endSection() ?>
@@ -93,6 +92,7 @@ $(document).ready(function() {
             [0, "desc"]
         ]
     });
+
 });
 var save_method; //for save method string
 var table;

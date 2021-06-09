@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Users;
+use App\Models\Buku;
 use App\Models\Notifikasi;
 class AdminController extends BaseController
 {
@@ -44,16 +45,16 @@ class AdminController extends BaseController
         {
             return redirect()->to(base_url('/'));
         }
-		$model = new Users();
+		$model = new Buku();
 		$notifiaksi = new Notifikasi();
 		$notifiaksi = $notifiaksi->limit(5)->orderBy('id', 'DESC')->get();
-		$users = $model->select('id, name, email ,address, phone , nik, created_at, updated_at')->orderBy('id', 'DESC')->findAll();
+		$book = $model->orderBy('id', 'DESC')->findAll();
 		$data = [
-			'users' => $users,
+			'books' => $book,
 			'notifikasi' => $notifiaksi,
 			'title' => 'Dashboard'
 		];
-		return view('v_add_users',$data);
+		return view('v_add_book',$data);
 	}
 
 	public function add_order()

@@ -1,9 +1,7 @@
 <div class="container-fluid">
     <div class="page-title">
         <div class="row">
-            <div class="col-6">
-                <h3>Tambah Users </h3>
-            </div>
+
             <div class="col-6">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url() ?>/admin"> <i data-feather="home"></i></a>

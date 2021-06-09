@@ -41,7 +41,8 @@ $routes->get('/admin/checkout', 'AdminController::checkout');
 $routes->get('/admin/about', 'AdminController::about');
 $routes->get('/logout', 'LoginController::logout');
 $routes->post('/login', 'LoginController::index');
-$routes->resource('/api/user', ['controller' =>'ApiController']);
+$routes->resource('/api/user', ['controller' =>'ApiUserController']);
+$routes->resource('/api/buku', ['controller' =>'ApiBukuController']);
 
 /*
  * --------------------------------------------------------------------

@@ -2,22 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="page-body">
-    <div class="container-fluid">
-        <div class="page-title">
-            <div class="row">
-                <div class="col-6">
-                    <h3>Recent Orders</h3>
-                </div>
-                <div class="col-6">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html"> <i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item">Ecommerce</li>
-                        <li class="breadcrumb-item active"> Recent Orders</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?= $this->include('/template/page_title') ?>
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">

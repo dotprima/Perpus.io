@@ -1,25 +1,25 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Users;
+use App\Models\Buku;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\Notifikasi;
 
-class ApiController extends BaseController
+class ApiBukuController extends BaseController
 {
     use ResponseTrait;
     public function index()
     {
-        $model = new Users();
-        $data = $model->select('id, name, email ,address, phone , nik, created_at, updated_at')->findAll();
+        $model = new Buku();
+        $data = $model->findAll();
         return $this->respond($data, 200);
     }
 
     public function show($id = null)
     {
-        $model = new Users();
-        $data = $model->select('id, name, email ,address, phone , nik, created_at, updated_at')->getWhere(['id' => $id])->getResult();
+        $model = new Buku();
+        $data = $model->getWhere(['id' => $id])->getResult();
         if($data){
             return $this->respond($data);
         }else{
@@ -30,17 +30,19 @@ class ApiController extends BaseController
     // create a product
     public function create()
     {
-        $users = new Users();
+        $users = new Buku();
         $validation =  \Config\Services::validation();
         $data = [
-            'name' => $this->request->getPost('name'),
-            'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT),
-            'address' => $this->request->getPost('name'),
-            'phone' => $this->request->getPost('phone'),
-            'nik' => $this->request->getPost('nik'),
+            'judul' => $this->request->getPost('judul'),
+            'tahun' => $this->request->getPost('tahun'),
+            'penulis' => $this->request->getPost('penulis'),
+            'penerbit' => $this->request->getPost('penerbit'),
+            'stock' => $this->request->getPost('stock'),
+            'jenis' => $this->request->getPost('jenis'),
+            'url' => $this->request->getPost('url'),
+            'harga' => $this->request->getPost('harga'),
         ]; 
-        if($validation->run($data, 'users') == TRUE){
+        if($validation->run($data, 'buku') == TRUE){
            if($users->insert($data)){
             $response = [
                 'status'   => 201,
@@ -52,7 +54,7 @@ class ApiController extends BaseController
             $notifiaksi = new Notifikasi();
             $noti = [
                 'status' => 'create',
-                'email'  => $data['email']
+                'email'  => $data['judul']
             ];
             $notifiaksi->insert($noti);
             return $this->respondCreated($response, 201);
@@ -78,31 +80,22 @@ class ApiController extends BaseController
     // update product
     public function update($id = null)
     {
-        $model = new Users();
+        $model = new Buku();
         $validation =  \Config\Services::validation();
-        $data = $model->select('id, name, email ,address, phone , nik, created_at, updated_at')->getWhere(['id' => $id])->getResult();
+        $data = $model->getWhere(['id' => $id])->getResult();
         if($data){
             $input  = $this->request->getRawInput();
             $data = [
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'address' => $input['address'],
-                'phone' => $input['phone'],
-                'nik' => $input['nik'],   
-                'password' => password_hash($input['password'], PASSWORD_BCRYPT)
-               
+                'judul' => $input['judul'],
+                'tahun' => $input['tahun'],
+                'penulis' => $input['penulis'],
+                'penerbit' => $input['penerbit'],
+                'stock' => $input['stock'],
+                'jenis' => $input['jenis'],
+                'url' => $input['url'],
+                'harga' => $input['harga']
             ];   
-            if($validation->run($data, 'users') == TRUE){
-                $input  = $this->request->getRawInput();
-                $data = [
-                    'name' => $input['name'],
-                    'email' => $input['email'],
-                    'address' => $input['address'],
-                    'phone' => $input['phone'],
-                    'nik' => $input['nik'],
-                    'password' => password_hash($input['password'], PASSWORD_BCRYPT)
-                   
-                ]; 
+            if($validation->run($data, 'buku') == TRUE){
                 $simpan = $model->update($id, $data);
                 if($simpan){
                     $msg = ['message' => 'Updated category successfully'];
@@ -114,7 +107,7 @@ class ApiController extends BaseController
                     $notifiaksi = new Notifikasi();
                     $noti = [
                         'status' => 'update',
-                        'email'  => $data['email']
+                        'email'  => $data['judul']
                     ];
                     $notifiaksi->insert($noti);
                     return $this->respond($response, 200);
@@ -141,7 +134,7 @@ class ApiController extends BaseController
     // delete product
     public function delete($id = null)
     {
-        $model = new Users();
+        $model = new Buku();
         $data = $model->find($id);
         if($data){
             $model->delete($id);
@@ -155,7 +148,7 @@ class ApiController extends BaseController
             $notifiaksi = new Notifikasi();
             $noti = [
                 'status' => 'delete',
-                'email'  => $data['email']
+                'email'  => $data['judul']
             ];
             $notifiaksi->insert($noti);
             return $this->respondDeleted($response);

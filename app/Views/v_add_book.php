@@ -11,7 +11,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-3">Tambah Data User</span>
+                        <h5 class="mb-3">Tambah Buku</span>
                     </div>
                     <div class="col-md-12 project-list">
                         <div class="card">
@@ -20,15 +20,13 @@
                                     <ul class="nav nav-tabs border-tab" id="top-tab" role="tablist">
                                         <div class="nav-item"><a class="nav-link active" id="count" data-bs-toggle="tab"
                                                 role="tab" aria-controls="top-home" aria-selected="true"><i
-                                                    data-feather="target"></i>User Count <?=count($users)?></a></div>
-
-
+                                                    data-feather="target"></i>Buku Count <?=count($books)?></a></div>
                                     </ul>
                                 </div>
                                 <div class="col-md-6">
                                     <button class="btn btn-success float-right" onclick="add_user()"><i
                                             class="glyphicon glyphicon-plus"></i>
-                                        Tambah Users</button>
+                                        Tambah Buku</button>
                                 </div>
                             </div>
                         </div>
@@ -38,35 +36,39 @@
                             <table class="display datatables" id="table_id">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Address</th>
-                                        <th>Phone</th>
-                                        <th>NIK</th>
-                                        <th>Created_at</th>
-                                        <th>Updated_at</th>
+                                        <th>Id</th>
+                                        <th>Judul</th>
+                                        <th>Tahun</th>
+                                        <th>Penulis</th>
+                                        <th>Penerbit</th>
+                                        <th>Stock</th>
+                                        <th>Jenis</th>
+                                        <th>Harga</th>
+                                        <th>Created</th>
+                                        <th>Updated</th>
                                         <th style="width:125px;">Action
                                             </p>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($users as $user):?>
+                                    <?php foreach($books as $book):?>
                                     <tr>
-                                        <td align="center"><?php echo $user['id']?></td>
-                                        <td align="center"><?php echo $user['name']?></td>
-                                        <td align="center"><?php echo $user['email']?></td>
-                                        <td align="center"><?php echo $user['address']?></td>
-                                        <td align="center"><?php echo $user['phone']?></td>
-                                        <td align="center"><?php echo $user['nik']?></td>
-                                        <td align="center"><?php echo $user['created_at']?></td>
-                                        <td align="center"><?php echo $user['updated_at']?></td>
+                                        <td align="center"><?php echo $book['id']?></td>
+                                        <td align="center"><?php echo $book['judul']?></td>
+                                        <td align="center"><?php echo $book['tahun']?></td>
+                                        <td align="center"><?php echo $book['penulis']?></td>
+                                        <td align="center"><?php echo $book['penerbit']?></td>
+                                        <td align="center"><?php echo $book['stock']?></td>
+                                        <td align="center"><?php echo $book['jenis']?></td>
+                                        <td align="center"><?php echo $book['harga']?></td>
+                                        <td align="center"><?php echo $book['created_at']?></td>
+                                        <td align="center"><?php echo $book['updated_at']?></td>
                                         <td>
                                             <button class="btn btn-warning"
-                                                onclick="edit_user(<?php echo $user['id'];?>)">Edit</button>
+                                                onclick="edit_user(<?php echo $book['id'];?>)">Edit</button>
                                             <button class="btn btn-danger"
-                                                onclick="delete_user(<?php echo $user['id'];?>)">Delete</button>
+                                                onclick="delete_user(<?php echo $book['id'];?>)">Delete</button>
                                         </td>
                                     </tr>
                                     <?php endforeach?>
@@ -124,7 +126,7 @@ function edit_user(id) {
     $('#form_update')[0].reset(); // reset form on modals
     <?php header('Content-type: application/json'); ?>
     $.ajax({
-        url: "<?=base_url()?>/api/user/" + id,
+        url: "<?=base_url()?>/api/buku/" + id,
         type: "GET",
         dataType: "JSON",
         success: function(data) {
@@ -147,7 +149,7 @@ function edit_user(id) {
 }
 
 function save() {
-    var url = "<?=base_url()?>/api/user"
+    var url = "<?=base_url()?>/api/buku"
 
     // ajax adding data to database
     $.ajax({
@@ -158,8 +160,8 @@ function save() {
         success: function(data) {
             //if success close modal and reload ajax table
             $('#modal_add').modal('hide');
-            $("#table_id").load("<?=base_url()?>/admin/adduser #table_id");
-            $("#count").load("<?=base_url()?>/admin/adduser #count");
+            $("#table_id").load("<?=base_url()?>/admin/addbook #table_id");
+            $("#count").load("<?=base_url()?>/admin/addbook #count");
             swal("Keren", "Data berhasil di masukan", "success");
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -176,14 +178,14 @@ function update(id) {
     }, {});
     $.ajax({
         data: $('#form_update').serialize(),
-        url: "<?=base_url()?>/api/user/" + formData.id,
+        url: "<?=base_url()?>/api/buku/" + formData.id,
         method: "PUT",
         dataType: "JSON",
         success: function(data) {
             //if success close modal and reload ajax table
             $('#modal_form').modal('hide');
             swal("Keren", "Data berhasil di update", "success");
-            $("#table_id").load("<?=base_url()?>/admin/adduser #table_id");
+            $("#table_id").load("<?=base_url()?>/admin/addbook #table_id");
 
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -205,12 +207,12 @@ function delete_user(id) {
             if (willDelete) {
                 // ajax delete data from database
                 $.ajax({
-                    url: "<?=base_url()?>/api/user/" + id,
+                    url: "<?=base_url()?>/api/buku/" + id,
                     type: "DELETE",
                     dataType: "JSON",
                     success: function(data) {
-                        $("#table_id").load("<?=base_url()?>/admin/adduser #table_id");
-                        $("#count").load("<?=base_url()?>/admin/adduser #count");
+                        $("#table_id").load("<?=base_url()?>/admin/addbook #table_id");
+                        $("#count").load("<?=base_url()?>/admin/addbook #count");
                         swal("Keren", "Data Gagal di hapus", "success");
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
@@ -369,7 +371,7 @@ function delete_user(id) {
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" id="btnSave" onclick="update(<?php echo $user['id']?>)"
+                <button type="button" id="btnSave" onclick="update(<?php echo $book['id']?>)"
                     class="btn btn-primary">Save</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>

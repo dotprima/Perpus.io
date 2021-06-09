@@ -1,190 +1,113 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="<?= csrf_token() ?>" content="<?= csrf_hash() ?>">
-
-    <title>Crud With Rest Api</title>
-    <!-- Font Awesome Icons -->
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet" />
-
-
-
-    <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.0.1/dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Cuba admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
+    <meta name="keywords"
+        content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="author" content="pixelstrap">
+    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
+    <title>Cuba - Premium Admin Template</title>
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900&amp;display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.css">
+    <!-- ico-font-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/icofont.css">
+    <!-- Themify icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/themify.css">
+    <!-- Flag icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/flag-icon.css">
+    <!-- Feather icon-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
+    <!-- Plugins css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
+    <!-- Plugins css Ends-->
+    <!-- Bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
+    <!-- App css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link id="color" rel="stylesheet" href="../assets/css/color-1.css" media="screen">
+    <!-- Responsive css-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
 </head>
 
-<body class="hold-transition layout-top-nav">
-    <div class="wrapper">
-        <!-- Navbar -->
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <!-- Container wrapper -->
+<body>
+    <!-- tap on top starts-->
+    <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+    <!-- tap on tap ends-->
+    <!-- page-wrapper Start-->
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+        <!-- Page Header Start-->
+        <?= $this->include('/template/header') ?>
+        <!-- Page Header Ends                              -->
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+            <!-- Page Sidebar Start-->
+            <div class="sidebar-wrapper">
+                <div>
+                    <div class="logo-wrapper"><a href="index.html"><img style="height:20px;" class="img-fluid for-light"
+                                src="https://primanugraha.tech/public/favicon.ico" alt=""><img
+                                class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt=""></a>
+                        <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+                        <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid">
+                            </i></div>
+                    </div>
+                    <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
+                                src="../assets/images/logo/logo-icon.png" alt=""></a></div>
+                    <?= $this->include('/template/sidebar') ?>
+                </div>
+            </div>
+            <?= $this->renderSection('content') ?>
+            <!-- footer start-->
+            <footer class="footer">
                 <div class="container-fluid">
-                    <!-- Toggle button -->
-                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-bars"></i>
-                    </button>
-
-                    <!-- Collapsible wrapper -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Navbar brand -->
-                        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                            <img src="https://primanugraha.tech/public/favicon.ico" height="15" alt="" loading="lazy" />
-                        </a>
-                        <!-- Left links -->
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a href="<?= base_url() ?>/admin"
-                                    class="nav-link <?php if($title=='Dashboard')echo 'active'?>">Admin</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="<?= base_url() ?>/admin/about"
-                                    class="nav-link <?php if($title=='About')echo 'active'?>">About US</a>
-                            </li>
-                        </ul>
-                        <!-- Left links -->
+                    <div class="row">
+                        <div class="col-md-12 footer-copyright text-center">
+                            <p class="mb-0"> Page rendered in {elapsed_time} seconds. Environment: <?= ENVIRONMENT ?>
+                            </p>
+                            <p class="mb-0"><strong>Copyright &copy; <?= date('Y') ?> <a
+                                        href="https://github.com/dotprima">Prima
+                                        Nugraha</a>.</strong> All rights
+                                reserved.</p>
+                        </div>
                     </div>
-                    <!-- Collapsible wrapper -->
-
-                    <!-- Right elements -->
-                    <div class="d-flex align-items-center">
-
-                        <!-- Notifications -->
-                        <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-bell"></i>
-                            <span class="badge rounded-pill badge-notification bg-danger">+</span>
-                        </a>
-                        <ul id="notifikasi" class="dropdown-menu dropdown-menu-end"
-                            aria-labelledby="navbarDropdownMenuLink">
-                            <?php foreach ($notifikasi->getResult() as $row ):?>
-                            <li>
-                                <p class="dropdown-item">
-                                    <span>
-                                        <span
-                                            class="badge rounded-pill <?php if($row->status=='delete')echo 'bg-danger'?>
-                                            <?php if($row->status=='create')echo 'bg-success'?>
-                                            <?php if($row->status=='update')echo 'bg-primary'?>"><?=$row->status?></span>
-                                        <?=$row->email?>
-                                    </span>
-                                </p>
-                            </li>
-                            <?php endforeach?>
-                        </ul>
-
-                        <!-- Avatar -->
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <img src="https://ui-avatars.com/api/?name=<?=session()->get('name')?>"
-                                class="rounded-circle" height="25" alt="" loading="lazy" />
-                            <span><?=session()->get('name')?></span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                            <li>
-                                <a class="dropdown-item" href="#">My profile</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">Settings</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?=base_url()?>/logout">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Right elements -->
                 </div>
-                <!-- Container wrapper -->
-            </nav>
-        </div>
-        <!-- /.navbar -->
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="<?= base_url()?>/admin">Welcome </a></li>
-                                <li class="breadcrumb-item active"><?=$title?></li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <div class="content">
-                <div class="container">
-                    <?= $this->renderSection('content') ?>
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-
-        <div class="container">
-            <!-- Main Footer -->
-            <footer class="main-footer">
-                <!-- To the right -->
-                <div class="float-right d-none d-sm-inline">
-                    Page rendered in {elapsed_time} seconds. Environment: <?= ENVIRONMENT ?>
-                </div>
-                <!-- Default to the left -->
-                <strong>Copyright &copy; <?= date('Y') ?> <a href="https://github.com/dotprima">Prima
-                        Nugraha</a>.</strong> All rights
-                reserved.
             </footer>
         </div>
     </div>
-    <!-- ./wrapper -->
-
-    <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
+    <!-- latest jquery-->
+    <script src="../assets/js/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AdminLTE App -->
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.0.1/dist/js/adminlte.min.js"></script>
-    <script src="https://cdn.datatables.net/plug-ins/f2c75b7247b/integration/bootstrap/3/dataTables.bootstrap.js"
-        type="text/javascript">
-    </script>
-    <script src="https://cdn.datatables.net/responsive/1.0.4/js/dataTables.responsive.js" type="text/javascript">
-    </script>
+    <!-- feather icon js-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript">
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+    <script src="../assets/js/icons/feather-icon/feather.min.js"></script>
+    <script src="../assets/js/icons/feather-icon/feather-icon.js"></script>
+    <!-- scrollbar js-->
+    <script src="../assets/js/scrollbar/simplebar.js"></script>
+    <script src="../assets/js/scrollbar/custom.js"></script>
+    <!-- Sidebar jquery-->
+    <script src="../assets/js/config.js"></script>
+    <!-- Plugins JS start-->
+    <script src="../assets/js/sidebar-menu.js"></script>
+    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
+    <script src="../assets/js/tooltip-init.js"></script>
+    <!-- Plugins JS Ends-->
+    <!-- Theme js-->
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/theme-customizer/customizer.js"></script>
+    <!-- login js-->
+    <!-- Plugin used-->
     <?= $this->renderSection('extra-js') ?>
     <?= $this->renderSection('modal') ?>
 </body>

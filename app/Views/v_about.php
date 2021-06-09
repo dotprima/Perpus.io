@@ -1,265 +1,223 @@
 <?= $this->extend('wrapper') ?>
 
 <?= $this->section('content') ?>
-<section class="content">
+<div class="page-body">
+    <?= $this->include('/template/page_title') ?>
+    <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Founder & CEO</h5>
+            <div class="col-md-6 col-lg-6 col-xl-4 box-col-6">
+                <div class="card custom-card p-0">
+                    <div class="card-header"><img class="img-fluid"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/user-card/1.jpg" alt="">
                     </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+                    <div class="card-profile"><img class="rounded-circle"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/avtar/3.jpg" alt="">
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
+                    <ul class="card-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <div class="text-center profile-details">
+                        <h5>Mark Jecno</h5>
+                        <h6>Manager</h6>
+                    </div>
+                    <div class="card-footer row">
+                        <div class="col-4 col-sm-4">
+                            <h6>Follower</h6>
+                            <h5 class="counter">9564</h5>
                         </div>
-                        <!-- /.row -->
+                        <div class="col-4 col-sm-4">
+                            <h6>Following</h6>
+                            <h5><span class="counter">49</span>K</h5>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <h6>Total Post</h6>
+                            <h5><span class="counter">96</span>M</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Founder & CEO</h5>
+            <div class="col-md-6 col-lg-6 col-xl-4 box-col-6">
+                <div class="card custom-card p-0">
+                    <div class="card-header"><img class="img-fluid"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/user-card/2.jpg" alt="">
                     </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+                    <div class="card-profile"><img class="rounded-circle"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/avtar/16.jpg" alt="">
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
+                    <ul class="card-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <div class="text-center profile-details">
+                        <h5>Johan Deo</h5>
+                        <h6>Designer</h6>
+                    </div>
+                    <div class="card-footer row">
+                        <div class="col-4 col-sm-4">
+                            <h6>Follower</h6>
+                            <h5 class="counter">2578</h5>
                         </div>
-                        <!-- /.row -->
+                        <div class="col-4 col-sm-4">
+                            <h6>Following</h6>
+                            <h5><span class="counter">26</span>K</h5>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <h6>Total Post</h6>
+                            <h5><span class="counter">96</span>M</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Founder & CEO</h5>
+            <div class="col-md-6 col-lg-6 col-xl-4 box-col-6">
+                <div class="card custom-card p-0">
+                    <div class="card-header"><img class="img-fluid"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/user-card/3.jpg" alt="">
                     </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+                    <div class="card-profile"><img class="rounded-circle"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/avtar/11.jpg" alt="">
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
+                    <ul class="card-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <div class="text-center profile-details">
+                        <h5>Dev John</h5>
+                        <h6>Devloper</h6>
+                    </div>
+                    <div class="card-footer row">
+                        <div class="col-4 col-sm-4">
+                            <h6>Follower</h6>
+                            <h5 class="counter">6545</h5>
                         </div>
-                        <!-- /.row -->
+                        <div class="col-4 col-sm-4">
+                            <h6>Following</h6>
+                            <h5><span class="counter">91</span>K</h5>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <h6>Total Post</h6>
+                            <h5><span class="counter">21</span>M</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Founder & CEO</h5>
+            <div class="col-md-6 col-lg-6 col-xl-4 box-col-6">
+                <div class="card custom-card p-0">
+                    <div class="card-header"><img class="img-fluid"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/user-card/7.jpg" alt="">
                     </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+                    <div class="card-profile"><img class="rounded-circle"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/avtar/16.jpg" alt="">
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
+                    <ul class="card-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <div class="text-center profile-details">
+                        <h5>Johan Deo</h5>
+                        <h6>Designer</h6>
+                    </div>
+                    <div class="card-footer row">
+                        <div class="col-4 col-sm-4">
+                            <h6>Follower</h6>
+                            <h5 class="counter">2578</h5>
                         </div>
-                        <!-- /.row -->
+                        <div class="col-4 col-sm-4">
+                            <h6>Following</h6>
+                            <h5><span class="counter">26</span>K</h5>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <h6>Total Post</h6>
+                            <h5><span class="counter">96</span>M</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Founder & CEO</h5>
+            <div class="col-md-6 col-lg-6 col-xl-4 box-col-6">
+                <div class="card custom-card p-0">
+                    <div class="card-header"><img class="img-fluid"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/user-card/5.jpg" alt="">
                     </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+                    <div class="card-profile"><img class="rounded-circle"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/avtar/11.jpg" alt="">
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
+                    <ul class="card-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <div class="text-center profile-details">
+                        <h5>Dev John</h5>
+                        <h6>Devloper</h6>
+                    </div>
+                    <div class="card-footer row">
+                        <div class="col-4 col-sm-4">
+                            <h6>Follower</h6>
+                            <h5 class="counter">6545</h5>
                         </div>
-                        <!-- /.row -->
+                        <div class="col-4 col-sm-4">
+                            <h6>Following</h6>
+                            <h5><span class="counter">91</span>K</h5>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <h6>Total Post</h6>
+                            <h5><span class="counter">21</span>M</h5>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header bg-info">
-                        <h3 class="widget-user-username">Alexander Pierce</h3>
-                        <h5 class="widget-user-desc">Founder & CEO</h5>
+            <div class="col-md-6 col-lg-6 col-xl-4 box-col-6">
+                <div class="card custom-card p-0">
+                    <div class="card-header"><img class="img-fluid"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/user-card/6.jpg" alt="">
                     </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+                    <div class="card-profile"><img class="rounded-circle"
+                            src="http://admin.pixelstrap.com/cuba/assets/images/avtar/3.jpg" alt="">
                     </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
+                    <ul class="card-social">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                    <div class="text-center profile-details">
+                        <h5>Mark Jecno</h5>
+                        <h6>Manager</h6>
+                    </div>
+                    <div class="card-footer row">
+                        <div class="col-4 col-sm-4">
+                            <h6>Follower</h6>
+                            <h5 class="counter">9564</h5>
                         </div>
-                        <!-- /.row -->
+                        <div class="col-4 col-sm-4">
+                            <h6>Following</h6>
+                            <h5><span class="counter">49</span>K</h5>
+                        </div>
+                        <div class="col-4 col-sm-4">
+                            <h6>Total Post</h6>
+                            <h5><span class="counter">96</span>M</h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+    <!-- Container-fluid Ends-->
+</div>
 <?= $this->endSection() ?>

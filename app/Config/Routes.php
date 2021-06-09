@@ -34,6 +34,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'HomeController::index');
 $routes->get('/admin', 'AdminController::index');
+$routes->get('/admin/adduser', 'AdminController::add_users');
+$routes->get('/admin/addbook', 'AdminController::add_book');
+$routes->get('/admin/addorder', 'AdminController::add_order');
+$routes->get('/admin/checkout', 'AdminController::checkout');
 $routes->get('/admin/about', 'AdminController::about');
 $routes->get('/logout', 'LoginController::logout');
 $routes->post('/login', 'LoginController::index');

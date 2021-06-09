@@ -1,5 +1,9 @@
 
-clone aplikasi
+clone aplikasi /downliad app
+
 composer intsall
-edit env
+
+istall database
+
+edit env 
 

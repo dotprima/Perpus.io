@@ -42,7 +42,6 @@
                                         <th>Penulis</th>
                                         <th>Penerbit</th>
                                         <th>Stock</th>
-                                        <th>Jenis</th>
                                         <th>Harga</th>
                                         <th>Created</th>
                                         <th>Updated</th>
@@ -60,7 +59,6 @@
                                         <td align="center"><?php echo $book['penulis']?></td>
                                         <td align="center"><?php echo $book['penerbit']?></td>
                                         <td align="center"><?php echo $book['stock']?></td>
-                                        <td align="center"><?php echo $book['jenis']?></td>
                                         <td align="center"><?php echo $book['harga']?></td>
                                         <td align="center"><?php echo $book['created_at']?></td>
                                         <td align="center"><?php echo $book['updated_at']?></td>
@@ -131,12 +129,14 @@ function edit_user(id) {
         dataType: "JSON",
         success: function(data) {
             $('[name="id"]').val(data[0].id);
-            $('[name="name"]').val(data[0].name);
-            $('[name="email"]').val(data[0].email);
-            $('[name="address"]').val(data[0].address);
-            $('[name="phone"]').val(data[0].phone);
-            $('[name="nik"]').val(data[0].nik);
-            $('[name="password"]').val(data[0].password);
+            $('[name="judul"]').val(data[0].judul);
+            $('[name="tahun"]').val(data[0].tahun);
+            $('[name="penulis"]').val(data[0].penulis);
+            $('[name="penerbit"]').val(data[0].penerbit);
+            $('[name="stock"]').val(data[0].stock);
+            $('[name="jenis"]').val(data[0].jenis);
+            $('[name="harga"]').val(data[0].harga);
+            $('[name="url"]').val(data[0].url);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Users'); // Set title to Bootstrap modal title
 
@@ -239,36 +239,19 @@ function delete_user(id) {
                 <form action="#" id="form_add" class="form-horizontal">
                     <input type="hidden" value="" name="book_id" />
                     <div class="row">
+                        <input type="hidden" id="id" name="id">
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nama</label>
-                                <input type="text" id="name" name='name' class="form-control"
+                                <label for="exampleInputEmail1">Judul</label>
+                                <input type="text" id="judul" name='judul' class="form-control"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    aria-describedby="emailHelp">
-                                <small id="emailHelp" class="form-text text-muted">*Required</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Alamat</label>
-                                <input type="text" class="form-control" id="address" name="address"
-                                    aria-describedby="emailHelp">
-                                <small id="emailHelp" class="form-text text-muted">*Required</small>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">NIK</label>
-                                <input type="text" class="form-control" id="nik" name="nik"
+                                <label for="exampleInputEmail1">Tahun</label>
+                                <input type="number" class="form-control" id="tahun" name="tahun"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
@@ -277,19 +260,41 @@ function delete_user(id) {
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">No Telephone</label>
-                                <input type="text" class="form-control" id="phone" name="phone"
+                                <label for="exampleInputEmail1">Penunlis</label>
+                                <input type="text" class="form-control" id="penulis" name="penulis"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
+                                <label for="exampleInputEmail1">Penerbit</label>
+                                <input type="text" class="form-control" id="penerbit" name="penerbit"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Stock Buku</label>
+                                <input type="number" class="form-control" id="stock" name="stock"
+                                    aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">*Required</small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Harga Buku</label>
+                                <input type="number" class="form-control" id="harga" name="harga"
+                                    aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">*Required</small>
+                            </div>
+                        </div>
+                        <div class="m-t-15 m-checkbox-inline custom-radio-ml">
+                            <label for="exampleInputEmail1">Gambar Url</label>
+                            <input type="text" class="form-control" id="url" name="url" aria-describedby="emailHelp">
                         </div>
                     </div>
                 </form>
@@ -317,34 +322,16 @@ function delete_user(id) {
                         <input type="hidden" id="id" name="id">
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nama</label>
-                                <input type="text" id="name" name='name' class="form-control"
+                                <label for="exampleInputEmail1">Judul</label>
+                                <input type="text" id="judul" name='judul' class="form-control"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    aria-describedby="emailHelp">
-                                <small id="emailHelp" class="form-text text-muted">*Required</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Alamat</label>
-                                <input type="text" class="form-control" id="address" name="address"
-                                    aria-describedby="emailHelp">
-                                <small id="emailHelp" class="form-text text-muted">*Required</small>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">NIK</label>
-                                <input type="text" class="form-control" id="nik" name="nik"
+                                <label for="exampleInputEmail1">Tahun</label>
+                                <input type="number" class="form-control" id="tahun" name="tahun"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
@@ -353,19 +340,41 @@ function delete_user(id) {
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">No Telephone</label>
-                                <input type="text" class="form-control" id="phone" name="phone"
+                                <label for="exampleInputEmail1">Penunlis</label>
+                                <input type="text" class="form-control" id="penulis" name="penulis"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
+                                <label for="exampleInputEmail1">Penerbit</label>
+                                <input type="text" class="form-control" id="penerbit" name="penerbit"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Stock Buku</label>
+                                <input type="number" class="form-control" id="stock" name="stock"
+                                    aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">*Required</small>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Harga Buku</label>
+                                <input type="number" class="form-control" id="harga" name="harga"
+                                    aria-describedby="emailHelp">
+                                <small id="emailHelp" class="form-text text-muted">*Required</small>
+                            </div>
+                        </div>
+                        <div class="m-t-15 m-checkbox-inline custom-radio-ml">
+                            <label for="exampleInputEmail1">Gambar Url</label>
+                            <input type="text" class="form-control" id="url" name="url" aria-describedby="emailHelp">
                         </div>
                     </div>
                 </form>

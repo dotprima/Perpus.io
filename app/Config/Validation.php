@@ -43,16 +43,14 @@ class Validation
 		'address'       => 'required|min_length[5]',
 		'phone'       => 'required|min_length[5]',
 		'nik'       => 'required|integer|min_length[5]',
-		'password'       => 'required|min_length[6]'
 	];
 
 	public $buku = [
 		'judul' => 'required|min_length[5]',
-        'tahun' => 'required|integer|min_length[2]',
+        'tahun' => 'required|integer|min_length[4]|max_length[4]',
         'penulis' => 'required|min_length[5]',
         'penerbit' => 'required|min_length[5]',
-        'stock' => 'required|integer|min_length[5]',
-        'jenis' => 'required|min_length[5]',
+        'stock' => 'required|integer|min_length[1]',
         'url' => 'required|min_length[5]',
         'harga' => 'required|integer|min_length[2]',
 	];

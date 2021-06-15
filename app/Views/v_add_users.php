@@ -134,7 +134,6 @@ function edit_user(id) {
             $('[name="address"]').val(data[0].address);
             $('[name="phone"]').val(data[0].phone);
             $('[name="nik"]').val(data[0].nik);
-            $('[name="password"]').val(data[0].password);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Users'); // Set title to Bootstrap modal title
 
@@ -281,14 +280,6 @@ function delete_user(id) {
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
-                                    aria-describedby="emailHelp">
-                                <small id="emailHelp" class="form-text text-muted">*Required</small>
-                            </div>
-                        </div>
                     </div>
                 </form>
             </div>
@@ -353,14 +344,6 @@ function delete_user(id) {
                             <div class="form-group">
                                 <label for="exampleInputEmail1">No Telephone</label>
                                 <input type="text" class="form-control" id="phone" name="phone"
-                                    aria-describedby="emailHelp">
-                                <small id="emailHelp" class="form-text text-muted">*Required</small>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Password</label>
-                                <input type="password" class="form-control" id="password" name="password"
                                     aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">*Required</small>
                             </div>

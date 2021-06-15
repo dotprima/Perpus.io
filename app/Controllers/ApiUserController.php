@@ -35,7 +35,6 @@ class ApiUserController extends BaseController
         $data = [
             'name' => $this->request->getPost('name'),
             'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT),
             'address' => $this->request->getPost('address'),
             'phone' => $this->request->getPost('phone'),
             'nik' => $this->request->getPost('nik'),
@@ -89,8 +88,6 @@ class ApiUserController extends BaseController
                 'address' => $input['address'],
                 'phone' => $input['phone'],
                 'nik' => $input['nik'],   
-                'password' => password_hash($input['password'], PASSWORD_BCRYPT)
-               
             ];   
             if($validation->run($data, 'users') == TRUE){
                 $input  = $this->request->getRawInput();

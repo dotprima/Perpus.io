@@ -46,9 +46,9 @@
                 <div class="login-card">
                     <div>
                         <div><a class="logo" href="index.html"><img class="img-fluid for-light"
-                                    src="../assets/images/logo/login.png" alt="looginpage"><img
-                                    class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png"
-                                    alt="looginpage"></a></div>
+                                    src="https://primanugraha.tech/public/favicon.ico" style="height:50px"
+                                    alt="looginpage"><img class="img-fluid for-dark"
+                                    src="https://primanugraha.tech/public/favicon.ico" alt="looginpage"></a></div>
                         <div class="login-main">
                             <?php if(session()->getFlashData('foo')):?>
                             <div class="alert alert-danger" role="alert"><?=session()->getFlashData('foo')?></div>

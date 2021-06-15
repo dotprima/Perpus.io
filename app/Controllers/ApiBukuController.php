@@ -38,7 +38,6 @@ class ApiBukuController extends BaseController
             'penulis' => $this->request->getPost('penulis'),
             'penerbit' => $this->request->getPost('penerbit'),
             'stock' => $this->request->getPost('stock'),
-            'jenis' => $this->request->getPost('jenis'),
             'url' => $this->request->getPost('url'),
             'harga' => $this->request->getPost('harga'),
         ]; 
@@ -91,7 +90,6 @@ class ApiBukuController extends BaseController
                 'penulis' => $input['penulis'],
                 'penerbit' => $input['penerbit'],
                 'stock' => $input['stock'],
-                'jenis' => $input['jenis'],
                 'url' => $input['url'],
                 'harga' => $input['harga']
             ];   

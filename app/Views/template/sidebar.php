@@ -14,9 +14,6 @@
                     href="<?=base_url()?>/admin/addbook"><i data-feather="check-square"> </i><span>Tambah
                         Buku</span></a></li>
             <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
-                    href="<?=base_url()?>/admin/history"><i data-feather="check-square"> </i><span>Tambah
-                        Buku</span></a></li>
-            <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"
                     href="<?=base_url()?>/admin/addorder"><i data-feather="zap"> </i><span>Buat Pesanan</span></a>
             </li>
             <li class="sidebar-list"><a class="sidebar-link sidebar-title link-nav"

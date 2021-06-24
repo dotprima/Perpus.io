@@ -10,8 +10,8 @@
     <meta name="keywords"
         content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="https://primanugraha.tech/public/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="https://primanugraha.tech/public/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?=base_url()?>/favicons.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=base_url()?>/favicons.ico" type="image/x-icon">
     <title>Login </title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap"
@@ -46,9 +46,9 @@
                 <div class="login-card">
                     <div>
                         <div><a class="logo" href="index.html"><img class="img-fluid for-light"
-                                    src="https://primanugraha.tech/public/favicon.ico" style="height:50px"
-                                    alt="looginpage"><img class="img-fluid for-dark"
-                                    src="https://primanugraha.tech/public/favicon.ico" alt="looginpage"></a></div>
+                                    src="<?=base_url()?>/favicons.ico" style="height:50px" alt="looginpage"><img
+                                    class="img-fluid for-dark" src="<?=base_url()?>/favicons.ico" alt="looginpage"></a>
+                        </div>
                         <div class="login-main">
                             <?php if(session()->getFlashData('foo')):?>
                             <div class="alert alert-danger" role="alert"><?=session()->getFlashData('foo')?></div>

@@ -10,8 +10,8 @@
     <meta name="keywords"
         content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="https://primanugraha.tech/public/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="https://primanugraha.tech/public/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?=base_url()?>/favicons.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=base_url()?>/favicons.ico" type="image/x-icon">
     <title>System Administrasi Perpustakaan</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i&amp;display=swap"
@@ -55,8 +55,8 @@
             <div class="sidebar-wrapper">
                 <div>
                     <div class="logo-wrapper"><a href="index.html"><img style="height:20px;" class="img-fluid for-light"
-                                src="https://primanugraha.tech/public/favicon.ico" alt=""><img
-                                class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt=""></a>
+                                src="<?=base_url()?>/favicons.ico" alt=""><img class="img-fluid for-dark"
+                                src="../assets/images/logo/logo_dark.png" alt=""></a>
                         <div class="back-btn"><i class="fa fa-angle-left"></i></div>
                         <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid">
                             </i></div>

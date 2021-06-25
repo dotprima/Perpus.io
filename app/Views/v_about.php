@@ -26,7 +26,7 @@
                     <div class="card-header"><img class="img-fluid"
                             src="http://admin.pixelstrap.com/cuba/assets/images/user-card/3.jpg" alt="">
                     </div>
-                    <div class="card-profile"><img class="rounded-circle" src="<?=base_url()?>/assets/14.jpg" alt="">
+                    <div class="card-profile"><img class="rounded-circle" src="<?=base_url()?>/assets/15.jpg" alt="">
                     </div>
                     <div class="text-center profile-details">
                         <h5>Hinggil Pawestri</h5>

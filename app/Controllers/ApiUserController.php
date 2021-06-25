@@ -97,7 +97,6 @@ class ApiUserController extends BaseController
                     'address' => $input['address'],
                     'phone' => $input['phone'],
                     'nik' => $input['nik'],
-                    'password' => password_hash($input['password'], PASSWORD_BCRYPT)
                    
                 ]; 
                 $simpan = $model->update($id, $data);
